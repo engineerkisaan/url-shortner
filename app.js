@@ -7,6 +7,8 @@ const connectDB = require('./config/db')
 
 const app = express();
 
+app.use(cors())
+
 connectDB();
 
 // parse application/x-www-form-urlencoded
