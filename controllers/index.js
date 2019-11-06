@@ -7,7 +7,7 @@ module.exports.accessShortUrl = (req, res, next) => {
         if (data && data.longUrl) {
             res.redirect(301,data.longUrl)
         } else {
-            response.sucess(res, 000, 'Url not found please contact to the provider', null)
+            res.redirect('/')
         }
     }).catch((error) => {
         response.error(res, 000, error, null)

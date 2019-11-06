@@ -4,8 +4,9 @@
   "description": "a basic project for URL shortner ...",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "NODE_ENV=production node app.js",
+    "dev": "NODE_ENV=development nodemon app.js",
+    "prestart": "cd client/ && npm install && npm run build"
   },
   "author": "engineerkisaan",
   "license": "ISC",

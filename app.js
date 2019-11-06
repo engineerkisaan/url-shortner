@@ -24,6 +24,15 @@ app.use(morgan('dev'))
 app.use('/', require('./route/index'));
 app.use('/api/v1/url', require('./route/url'));
 
+// handle live
+
+if (process.env.NODE_ENV == 'production'){
+    app.use(express.static(__dirname + '/public/'));
+    app.use(/.*/, (req, res, next) => {
+        res.sendFile(__dirname + '/public/index.html')
+    })
+}
+
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
     console.log(`Server has started at ${PORT} PORT ...\nthe api url is http://0.0.0.0:${PORT}/api/v1`)
